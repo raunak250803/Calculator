@@ -14,20 +14,52 @@ const outputScreen = document.querySelector(".screen");
 const btns = document.querySelectorAll(".btn");
 const clearbtn = document.querySelector(".clear");
 
+
+let plusCount = 0;
+let subCount = 0;
+let mulCount = 0;
+let divCount = 0;
+let dotCount = 0;
+
 function init(){
     outputScreen.innerText = "";
+    plusCount = 0;
+    subCount = 0;
+    mulCount = 0;
+    divCount = 0;
+    dotCount = 0;
 }
-init();
-
 btns.forEach((btn) => {
-    btn.addEventListener("click", () => {
-        let val = btn.innerText;
-        if (val === 'x') {
-            val = '*';
-        } else if (val === '÷') {
-            val = '/';
+    btn.addEventListener("click", (event) => {
+        if(event.target.innerText === '+' && plusCount === 0){
+            let val = btn.innerText;
+            outputScreen.innerText = outputScreen.innerText + val;
+            plusCount = plusCount + 1;
         }
-        outputScreen.innerText = outputScreen.innerText + val;
+        else if (event.target.innerText === '-' && subCount === 0){
+            let val = btn.innerText;
+            outputScreen.innerText = outputScreen.innerText + val;
+            subCount = subCount + 1;
+        }
+        else if (event.target.innerText >='0' && event.target.innerText <='9'){
+            let val = btn.innerText;
+            outputScreen.innerText = outputScreen.innerText + val;
+        }
+        else if (event.target.innerText === 'x' && mulCount === 0){
+            let val = '*';
+            outputScreen.innerText = outputScreen.innerText + val;
+            mulCount = mulCount + 1;
+        }
+        else if (event.target.innerText === '÷' && divCount === 0){
+            let val = '/';
+            outputScreen.innerText = outputScreen.innerText + val;
+            divCount = divCount + 1;
+        }
+        else if (event.target.innerText === '.' && dotCount === 0){
+            let val = event.target.innerText;
+            outputScreen.innerText = outputScreen.innerText + val;
+            dotCount = dotCount + 1;
+        }
     })
 })
 function formatNumber(number) {
