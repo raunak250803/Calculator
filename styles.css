@@ -69,6 +69,7 @@ p{
     margin-left: 18px;
     margin-bottom: 5px;
     margin-top: 8px;
+    overflow: hidden;
 }
 .allButtons{
     display: flex;
@@ -117,13 +118,5 @@ p{
 }
 .btEqual:hover p{
     color: white;
-}
-@media (max-width: 600px) {
-    .output {
-        width: 100%; /* Adjust width for smaller screens */
-        height: auto; /* Allow height to adjust based on content */
-        padding: 10px; /* Reduce padding */
-        font-size: 1rem; /* Adjust font size */
-    }
 }
 
